@@ -1,1 +1,32 @@
-<p>user-profile works!</p>
+<h2 class="title">User profile form</h2>
+<!-- user profile form -->
+<form (submit.prevent)="onSubmit()" class="row column p-16">
+  <!-- first name -->
+  <mat-form-field appearance="outline">
+    <mat-label>First Name</mat-label>
+    <input [field]="form.firstName" type="text" matInput placeholder="First name" />
+    <!-- validation -->
+    @let firstNameState = form.firstName();
+    @if (firstNameState.touched() && firstNameState.invalid()) {
+      @for (error of firstNameState.errors(); track error.kind) {
+        <mat-error>{{ error.message }}</mat-error>
+      }
+    }
+  </mat-form-field>
+  <!-- last name -->
+  <mat-form-field appearance="outline">
+    <mat-label>Last Name</mat-label>
+    <input [field]="form.lastName" type="text" matInput placeholder="Last name" />
+    <!-- validation -->
+    @let lastNameState = form.lastName();
+    @if (lastNameState.touched() && lastNameState.invalid()) {
+      @for (error of lastNameState.errors(); track error.kind) {
+        <mat-error>{{ error.message }}</mat-error>
+      }
+    }
+  </mat-form-field>
+  <!-- actions -->
+  <button [disabled]="form().submitting() || form().invalid()" color="primary" matButton="filled">
+    Submit
+  </button>
+</form>
