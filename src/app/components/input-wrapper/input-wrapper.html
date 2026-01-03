@@ -1,1 +1,35 @@
-<p>input-wrapper works!</p>
+@let lbl = label();
+@let ctrl = control();
+
+<div class="input-wrapper" [class.invalid]="ctrl.invalid">
+  <!-- секция с label -->
+  <label class="label">
+    @if (lbl) {
+      {{ lbl }}
+
+      @if (isRequired()) {
+        <span class="required">*</span>
+      }
+    }
+  </label>
+
+  <!-- прокидываемое содержимое -->
+  <ng-content />
+
+  <!-- секция с ошибками валидации -->
+  @if (ctrl.invalid) {
+    <div class="error-message">
+      @if (ctrl.errors && ctrl.touched) {
+        @if (ctrl.errors['required']) {
+          <div class="error">This field is required</div>
+        }
+
+        @if (ctrl.errors['minLength']) {
+          <div class="error">Minimum length is {{ ctrl.errors['minlength'].requiredLength }}</div>
+        }
+
+        invalid input
+      }
+    </div>
+  }
+</div>

@@ -10,5 +10,5 @@ import { InputWrapper } from '../input-wrapper/input-wrapper';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ContactDetails {
-  readonly formGroup = input.required<FormGroup>;
+  readonly details = input.required<FormGroup>();
 }
