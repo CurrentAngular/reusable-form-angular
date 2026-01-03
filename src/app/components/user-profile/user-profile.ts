@@ -3,7 +3,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { initialFormData } from './user-profile-form.model';
-import { form, Field, submit } from '@angular/forms/signals';
+import { Field, submit } from '@angular/forms/signals';
 import { profileFormSchema } from './user-profile-form.schema';
 import { ContactDetailsService } from '../../services/contact-details.service';
 import { ContactDetails } from '../contact-details/contact-details';
