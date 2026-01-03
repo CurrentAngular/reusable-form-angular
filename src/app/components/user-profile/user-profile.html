@@ -1,6 +1,6 @@
 <h2 class="title">User profile form</h2>
 <!-- user profile form -->
-<form (submit.prevent)="onSubmit()" class="row column p-16">
+<form (submit.prevent)="onSubmit()" autocomplete="off" class="row column p-16">
   <!-- first name -->
   <mat-form-field appearance="outline">
     <mat-label>First Name</mat-label>
@@ -25,6 +25,8 @@
       }
     }
   </mat-form-field>
+  <!-- contact details -->
+  <rf-contact-details [details]="contactDetails" />
   <!-- actions -->
   <button [disabled]="form().submitting() || form().invalid()" color="primary" matButton="filled">
     Submit

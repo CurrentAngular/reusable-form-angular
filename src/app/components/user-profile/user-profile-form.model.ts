@@ -1,6 +1,4 @@
-import { UserProfileInterface } from './user-profile-form.interface';
-
-export const initialFormData: UserProfileInterface = {
+export const initialFormData = {
   firstName: '',
   lastName: '',
 };
